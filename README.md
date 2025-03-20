@@ -6,7 +6,7 @@ Este Repositorio foi criado para ensinar os alunos da UniFAAT a trabalharem com 
 
 ├── InfraBD/ # Contem a os arquivos docker para subir o Banco de Dados<br>
 │ ├── northwind.sql # SQL utilizado para criar o Banco e as tabelas utilizadas no projeto<br> 
-│ ├── dockerFile # arquivo docker para inicializar o postgre<br>
+│ ├── Dockerfile # arquivo docker para inicializar o postgre<br>
 │ └── [Readme.md](InfraBD/Readme.md) # Instruções para inicializar o banco no docker
 ├── app/ # Pasta com o projeto python<br>
 │ ├── Util/ # Utilitários e modulos Python<br>
@@ -14,6 +14,8 @@ Este Repositorio foi criado para ensinar os alunos da UniFAAT a trabalharem com 
 │ │ └── paramsBD.yml # Arquico com as configurações para conexão com o Banco de Dados<br>
 │ ├── crudCateg.py # MicroServiso de CRUD de Categorias<br>
 │ └── [Readme.md](app/Readme.md) # Instruções para inicializar o APP
+├── docker-compose.yml # define a configuração para dois serviços: app e db.
+├── Dockerfile # define a configuração para construir uma imagem Docker para uma aplicação Flask.
 └── Readme.md # Arquivo com instruções gerais
 
 ## Como Rodar o Docker-Compose
