@@ -8,6 +8,8 @@ app = Flask(__name__)
 def create_category():
     data = request.get_json()
     conn = bd.create_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to the database"}), 500
     cursor = conn.cursor()
     try:
         cursor.execute(
@@ -29,6 +31,8 @@ def create_category():
 @app.route('/categories/<int:category_id>', methods=['GET'])
 def read_category(category_id):
     conn = bd.create_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to the database"}), 500
     cursor = conn.cursor()
     try:
         cursor.execute("SELECT * FROM categories WHERE category_id = %s", (category_id,))
@@ -51,6 +55,8 @@ def read_category(category_id):
 def update_category(category_id):
     data = request.get_json()
     conn = bd.create_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to the database"}), 500
     cursor = conn.cursor()
     try:
         cursor.execute(
@@ -73,6 +79,8 @@ def update_category(category_id):
 @app.route('/categories/<int:category_id>', methods=['DELETE'])
 def delete_category(category_id):
     conn = bd.create_connection()
+    if conn is None:
+        return jsonify({"error": "Failed to connect to the database"}), 500
     cursor = conn.cursor()
     try:
         cursor.execute("DELETE FROM categories WHERE category_id = %s", (category_id,))
@@ -86,4 +94,4 @@ def delete_category(category_id):
         conn.close()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

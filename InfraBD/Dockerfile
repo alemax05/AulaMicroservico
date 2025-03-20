@@ -1,5 +1,5 @@
 # Utiliza a imagem oficial mais recente do PostgreSQL como base.
-FROM postgres:latest 
+FROM postgres:13
 
 # Defina variáveis de ambiente para configurar o PostgreSQL
 ENV POSTGRES_DB=northwind
