@@ -8,11 +8,15 @@
 
 FROM python:3.9-slim
 
-WORKDIR /
+WORKDIR /app
 
-COPY /app/requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY app/ /app/
+COPY app/Util/paramsBD.yml /app/Util/paramsBD.yml
 
-COPY ./app .
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-CMD ["python", "crudCateg.py"]
+COPY ./app /app
+
+EXPOSE 5000
+
+CMD ["python", "crudAlunos.py"]

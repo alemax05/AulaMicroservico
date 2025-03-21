@@ -33,7 +33,7 @@ docker build -t my-postgres-image .
 ### Passo 2: Executar o Contêiner
 Para executar o contêiner Docker com a imagem criada, utilize o seguinte comando:
 ```bash 
-docker run -d --name my-postgres-container -p 2000:5432 my-postgres-image
+docker run -d --name my-postgres-container -p 3000:5432 my-postgres-image
 ```
 ### Passo 3: Conectar ao PostgreSQL
 Você pode se conectar ao PostgreSQL utilizando um cliente PostgreSQL, como dbeaver, psql, ou qualquer ferramenta de gerenciamento de banco de dados que suporte PostgreSQL. Utilize as seguintes credenciais:
